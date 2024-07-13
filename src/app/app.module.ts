@@ -10,6 +10,7 @@ import { ProfileListComponent } from './pages/profile/profile-list/profile-list.
 import { ProfileCreateUpdateComponent } from './pages/profile/profile-create-update/profile-create-update.component';
 import { ProfileService } from './services/profile.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TableListComponent } from './components/table-list/table-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomeComponent,
     ProfileListComponent,
-    ProfileCreateUpdateComponent
+    ProfileCreateUpdateComponent,
+    TableListComponent
   ],
   imports: [
     BrowserModule,

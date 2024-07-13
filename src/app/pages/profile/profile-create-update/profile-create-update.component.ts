@@ -26,7 +26,7 @@ export class ProfileCreateUpdateComponent implements OnInit {
       perfil: new FormControl('', Validators.required),
       idade: new FormControl(0, [Validators.required, Validators.min(0)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      ativo: new FormControl(true),
+      ativo: new FormControl(false),
       pais: new FormControl(''),
       nivelDeExperiencia: new FormControl('')
     });

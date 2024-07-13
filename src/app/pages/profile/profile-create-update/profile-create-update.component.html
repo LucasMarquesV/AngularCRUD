@@ -1,20 +1,33 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+      <i class="mb-3" style="color: red"> 
+        Atenção: Os campos marcados com "*" tem preenchimento obrigatório.
+      </i>
       <div class="mb-3">
-        <label for="name" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="nome" formControlName="nome" name="name">
+        <label for="name" class="form-label">Nome *</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome" name="name" maxlength="60">
+        
       </div>
       <div class="mb-3">
-        <label for="perfil" class="form-label">Perfil</label>
-        <input type="text" class="form-control" id="perfil" formControlName="perfil">
+        <label for="perfil" class="form-label">Perfil *</label>
+        <select class="form-control" id="perfil" formControlName="perfil">
+          <option value="">Selecione o perfil</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Padrão">Padrão</option>
+          <option value="Temporário">Temporário</option>
+        </select>
       </div>
       <div class="mb-3">
-        <label for="idade" class="form-label">Idade</label>
-        <input type="number" class="form-control" id="idade" formControlName="idade">
+        <label for="idade" class="form-label">Idade *</label>
+        <input type="number" class="form-control" id="idade" formControlName="idade" max="150">
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
+        <label for="email" class="form-label">E-mail *</label>
+        <input type="text" class="form-control" id="email" formControlName="email" maxlength="60">
+      </div>
+      <div class="mb-3 form-check">
+        <label class="form-check-label" for="ativo">Desejo marcar o perfil como ativo.</label>
+        <input type="checkbox" class="form-check-input" id="ativo" formControlName="ativo">
       </div>
       <div class="mb-3">
         <label for="pais" class="form-label">País</label>
@@ -22,12 +35,20 @@
       </div>
       <div class="mb-3">
         <label for="nivelDeExperiencia" class="form-label">Nível de Experiência</label>
-        <input type="text" class="form-control" id="nivelDeExperiencia" formControlName="nivelDeExperiencia">
+        <select class="form-control" id="nivelDeExperiencia" formControlName="nivelDeExperiencia">
+          <option value="">Selecione o perfil</option>
+          <option value="Iniciante">Iniciante</option>
+          <option value="Estagiário">Estagiário</option>
+          <option value="Junior">Junior</option>
+          <option value="Pleno">Pleno</option>
+          <option value="Sênior ou acima">Sênior ou acima</option>
+          <option value="Nenhuma das opções">Nenhuma das opções</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">
+      <button type="submit" class="btn btn-primary mx-2" [disabled]="!profileForm.valid">
         {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
       </button>
-      <a routerLink="/profile" class="btn btn-secondary">Voltar à lista</a>
+      <a routerLink="/profile" class="btn btn-secondary mx-2">Voltar à lista</a>
     </form>
   </div>
   
