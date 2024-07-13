@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../../services/profile.service';
-import { Profile } from '../../../interfaces/profile'; // ajuste o caminho conforme necessário
+import { Profile } from '../../../interfaces/profile'; 
 
 @Component({
   selector: 'app-profile-list',
@@ -8,7 +8,7 @@ import { Profile } from '../../../interfaces/profile'; // ajuste o caminho confo
   styleUrls: ['./profile-list.component.css']
 })
 export class ProfileListComponent implements OnInit {
-  profiles: Profile[] = []; // utilize o tipo Profiles
+  profiles: Profile[] = [];
 
   constructor(private profileService: ProfileService) {}
 

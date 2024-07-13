@@ -52,7 +52,6 @@ export class ProfileCreateUpdateComponent implements OnInit {
       this.profileService.editar(profile).subscribe(result => {
         Swal.fire({
           title: 'Perfil atualizado com sucesso!',
-          text: 'PARABÉNS CHAMPS!!',
           icon: 'success',
         });
         this.router.navigateByUrl('/profile');
@@ -60,8 +59,7 @@ export class ProfileCreateUpdateComponent implements OnInit {
     } else {
       this.profileService.cadastrar(profile).subscribe(result => {
         Swal.fire({
-          title: 'Pessoa cadastrada com sucesso!',
-          text: 'PARABÉNS CHAMPS!!',
+          title: 'Pessoa cadastrada com sucesso!!',
           icon: 'success',
         });
         this.router.navigateByUrl('/profile');
