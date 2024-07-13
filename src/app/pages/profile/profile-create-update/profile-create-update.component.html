@@ -1,30 +1,33 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
-        <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" formControlName="nome" name="name">
-        </div>
-        <div class="mb-3">
-            <label for="perfil" class="form-label">Perfil</label>
-            <input type="text" class="form-control" id="perfil" formControlName="perfil">
-        </div>
-        <div class="mb-3">
-            <label for="idade" class="form-label">Idade</label>
-            <input type="number" class="form-control" id="idade" formControlName="idade">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">E-mail</label>
-            <input type="text" class="form-control" id="email" formControlName="email">
-        </div>
-        <div class="mb-3">
-            <label for="pais" class="form-label">País</label>
-            <input type="text" class="form-control" id="pais" formControlName="pais">
-        </div>
-        <div class="mb-3">
-            <label for="nivelDeExperiencia" class="form-label">Nível de Experiência</label>
-            <input type="text" class="form-control" id="nivelDeExperiencia" formControlName="pais">
-        </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Cadastrar</button>
-        <a routerLink="/profile" class="btn btn-secondary">Voltar a lista</a>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="perfil" class="form-label">Perfil</label>
+        <input type="text" class="form-control" id="perfil" formControlName="perfil">
+      </div>
+      <div class="mb-3">
+        <label for="idade" class="form-label">Idade</label>
+        <input type="number" class="form-control" id="idade" formControlName="idade">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+      </div>
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <input type="text" class="form-control" id="pais" formControlName="pais">
+      </div>
+      <div class="mb-3">
+        <label for="nivelDeExperiencia" class="form-label">Nível de Experiência</label>
+        <input type="text" class="form-control" id="nivelDeExperiencia" formControlName="nivelDeExperiencia">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">
+        {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+      </button>
+      <a routerLink="/profile" class="btn btn-secondary">Voltar à lista</a>
     </form>
-</div>
+  </div>
+  
