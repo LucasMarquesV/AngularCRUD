@@ -1,21 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../../services/profile.service';
+import { Profile } from '../../../interfaces/profile'; // ajuste o caminho conforme necessário
 
-import { ProfileListComponent } from './profile-list.component';
+@Component({
+  selector: 'app-profile-list',
+  templateUrl: './profile-list.component.html',
+  styleUrls: ['./profile-list.component.css']
+})
+export class ProfileListComponent implements OnInit {
+  profiles: Profile[] = []; // utilize o tipo Profiles
 
-describe('ProfileListComponent', () => {
-  let component: ProfileListComponent;
-  let fixture: ComponentFixture<ProfileListComponent>;
+  constructor(private profileService: ProfileService) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ProfileListComponent]
+  ngOnInit() {
+    this.profileService.buscarTodos().subscribe((result: Profile[]) => {
+      this.profiles = result;
+    }, error => {
+      console.error(error);
     });
-    fixture = TestBed.createComponent(ProfileListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  }
+}

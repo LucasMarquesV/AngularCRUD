@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Profile } from '../interfaces/profile';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   buscarTodos() {
-    return this.http.get(this.api);
+    return this.http.get<Profile[]>(this.api);
   }
 
-  cadastrar(profile: any) {
-    return this.http.post<any>(this.api, profile);
+  cadastrar(profile: Profile) {
+    return this.http.post<Profile>(this.api, profile);
   }
 }

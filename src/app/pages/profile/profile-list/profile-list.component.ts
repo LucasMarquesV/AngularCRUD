@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../../services/profile.service';
-import { map } from 'rxjs';
+import { Profile } from '../../../interfaces/profile'; // ajuste o caminho conforme necessário
 
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
   styleUrls: ['./profile-list.component.css']
 })
-export class ProfileListComponent {
+export class ProfileListComponent implements OnInit {
+  profiles: Profile[] = []; 
+
   constructor(private profileService: ProfileService) {}
-  profiles: any;
 
   ngOnInit() {
-    this.profileService.buscarTodos().subscribe(result => {
+    this.profileService.buscarTodos().subscribe((result: Profile[]) => {
       this.profiles = result;
     }, error => {
       console.error(error);
     });
   }
 
+
+  editar(id: string){}
+  deletar(id: string){}
 }

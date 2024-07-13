@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from '../../../services/profile.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { Profile } from 'src/app/interfaces/profile';
 
 @Component({
   selector: 'app-profile-create-update',
@@ -12,24 +13,28 @@ import { Router } from '@angular/router';
 export class ProfileCreateUpdateComponent {
 
   constructor(private profileService: ProfileService, private router: Router) {}
-  
+
   profileForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    role: new FormControl('', Validators.required),
-    age: new FormControl(0, [Validators.required, Validators.min(0)])
-  })
+    nome: new FormControl('', Validators.required),
+    perfil: new FormControl('', Validators.required),
+    idade: new FormControl(0, [Validators.required, Validators.min(0)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    ativo: new FormControl(true),
+    pais: new FormControl(''),
+    nivelDeExperiencia: new FormControl('')
+  });
 
   onSubmit() {
-    const profile = this.profileForm.value;
-    console.log(profile)
+    const profile: Profile = this.profileForm.value as Profile;
+    console.log(profile);
     this.profileService.cadastrar(profile).subscribe(result => {
-      console.log(result)
+      console.log(result);
       Swal.fire({
         title: 'Pessoa cadastrada com sucesso!',
-        text: 'PARABENS CHAMPS!!',
+        text: 'PARABÉNS CHAMPS!!',
         icon: 'success',
-      })
-      this.router.navigateByUrl('/profile')
+      });
+      this.router.navigateByUrl('/profile');
     });
   }
 }

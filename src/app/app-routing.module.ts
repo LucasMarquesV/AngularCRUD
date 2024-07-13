@@ -6,6 +6,9 @@ import { ProfileCreateUpdateComponent } from './pages/profile/profile-create-upd
 
 const routes: Routes = [
   {
+    path: '', component: HomeComponent
+  },
+  {
     path: 'home', component: HomeComponent
   },
   {
